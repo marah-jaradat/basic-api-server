@@ -44,7 +44,7 @@ describe("testing food route", () => {
       foodName: "test",
       foodMainIngredient: "test",
     });
-    expect(response.status).toEqual(202);
+    expect(response.status).toEqual(201);
     id = response.body.id;
   });
 
@@ -55,11 +55,11 @@ describe("testing food route", () => {
 
   it("testing delete food", async () => {
     const response = await request.delete(`/food/${id}`);
-    expect(response.status).toEqual(200);
+    expect(response.status).toEqual(204);
   });
 
   it("testing update food", async () => {
-    const response = await request.get(`/food/${id}`).send({
+    const response = await request.post(`/food/${id}`).send({
       foodName: "test",
       foodMainIngredient: "test",
     });
@@ -78,16 +78,22 @@ describe("testing clothes route", () => {
       clothesColor: "test",
       clothesSize: "test",
     });
-    expect(response.status).toEqual(202);
+    expect(response.status).toEqual(201);
     id = response.body.id;
   });
 
   it("testing delete clothes", async () => {
     const response = await request.delete(`/clothes/${id}`);
+    expect(response.status).toEqual(204);
+  });
+
+  it("testing get clothes by id", async () => {
+    const response = await request.get(`/clothes/${id}`);
     expect(response.status).toEqual(200);
   });
+
   it("testing update clothes", async () => {
-    const response = await request.get(`/clothes/${id}`).send({
+    const response = await request.put(`/clothes/${id}`).send({
       clothesColor: "test",
       clothesSize: "test",
     });
