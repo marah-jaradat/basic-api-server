@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/clothes", getClothes);
 router.post("/clothes", addClothes);
 router.get("/clothes/:id", getById);
-router.delete("/food/:id", deleteClothes);
+router.delete("/clothes/:id", deleteClothes);
 router.put("/clothes/:id", updateClothes);
 
 async function getClothes(req, res) {
