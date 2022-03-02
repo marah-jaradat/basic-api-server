@@ -7,7 +7,7 @@ Build a REST API using Express, by creating a proper series of endpoints that pe
    [Actions](https://github.com/marah-jaradat/basic-api-server/actions)
 
 **2. The Pull request:**
-   [pull request](https://github.com/marah-jaradat/basic-api-server/pull/3)
+   [pull request](https://github.com/marah-jaradat/basic-api-server/pull/6)
 
 **3. Heroku link**
-    [deploy-main](https://api-server-marah.herokuapp.com/),  [deploy-dev](https://api-server-dev-marah.herokuapp.com/)
+    [deploy-main](https://basic-api-server-marah.herokuapp.com/)
