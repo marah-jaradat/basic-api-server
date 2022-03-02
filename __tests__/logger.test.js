@@ -13,26 +13,26 @@ describe("testing next", () => {
   });
 });
 
-// describe("testing logger middleware", () => {
-//   let consoleSpy;
-//   let req = {};
-//   let res = {};
-//   let next = jest.fn();
+describe("testing logger middleware", () => {
+  let consoleSpy;
+  let req = {};
+  let res = {};
+  let next = jest.fn();
 
-//   beforeEach(() => {
-//     consoleSpy = jest.spyOn(console, "log").mockImplementation();
-//   });
+  beforeEach(() => {
+    consoleSpy = jest.spyOn(console, "log").mockImplementation();
+  });
 
-// afterAll(()=>{
-//     consoleSpy.mockRestore();
-// })
+  // afterEach(()=>{
+  //     consoleSpy.mockRestore();
+  // })
 
-//   it("test log", () => {
-//     logger(req, res, next);
-//     expect(consoleSpy).toHaveBeenCalled();
-//   });
-//   it("test next", () => {
-//     logger(req, res, next);
-//     expect(next).toHaveBeenCalled();
-//   });
-// });
+  it("test log", () => {
+    logger(req, res, next);
+    expect(consoleSpy).toHaveBeenCalled();
+  });
+  it("test next", () => {
+    logger(req, res, next);
+    expect(next).toHaveBeenCalled();
+  });
+});
