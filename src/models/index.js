@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const food = require("./food");
 const clothes = require("./clothes");
 
-const POSTGRES_URI =
+const POSTGRES_URL =
   process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL; // npm i sqlite3
 
 let sequelizeOptions =
@@ -20,7 +20,7 @@ let sequelizeOptions =
       }
     : {};
 
-let sequelize = new Sequelize(POSTGRES_URI, sequelizeOptions);
+let sequelize = new Sequelize(POSTGRES_URL, sequelizeOptions);
 
 // const POSTGRES_URL =
 //   process.env.DATABASE_URL ||
