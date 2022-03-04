@@ -41,14 +41,14 @@ app.get("/person", validator, (req, res) => {
 //   });
 // });
 
+app.use(errorHandler);
+app.use("*", notFound);
+
 function start(port) {
   app.listen(port, () => {
     console.log(`running on port ${port}`);
   });
 }
-
-app.use(errorHandler);
-app.use("*", notFound);
 
 module.exports = {
   app: app,
