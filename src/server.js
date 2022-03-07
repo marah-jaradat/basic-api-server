@@ -28,11 +28,11 @@ app.get("/", (req, res) => {
   res.send("home route");
 });
 
-app.get("/person", validator, (req, res) => {
-  res.json({
-    name: req.query.name,
-  });
-});
+// app.get("/person", validator, (req, res) => {
+//   res.json({
+//     name: req.query.name,
+//   });
+// });
 
 // app.get("/data", (req, res) => {
 //   res.status(200).json({
