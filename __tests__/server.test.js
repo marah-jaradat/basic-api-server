@@ -3,6 +3,7 @@ const server = require("../src/server");
 const supertest = require("supertest");
 const request = supertest(server.app);
 const { db } = require("../src/models/index");
+const { expect, it } = require("@jest/globals");
 
 let id = 1;
 
