@@ -7,8 +7,8 @@ const router = express.Router();
 router.get("/clothes", getClothes);
 router.post("/clothes", addClothes);
 router.get("/clothes/:id", getById);
-router.delete("/clothes/:id", deleteClothes);
 router.put("/clothes/:id", updateClothes);
+router.delete("/clothes/:id", deleteClothes);
 
 async function getClothes(req, res) {
   let allClothes = await clothes.findAll();
@@ -27,18 +27,17 @@ async function getById(req, res) {
   res.status(200).json(gettedClothes);
 }
 
-async function deleteClothes(req, res) {
-  let delId = parseInt(req.params.id);
-  let delCloth = await clothes.destroy({ where: { id: delId } });
-  res.status(204).json(delCloth);
-}
-
 async function updateClothes(req, res) {
   let body = req.body;
   let clothId = req.params.id;
   let clothesNeeded = await clothes.findOne({ where: { id: clothId } });
   const updatedClothes = await clothesNeeded.update(body);
   res.status(201).json(updatedClothes);
+}
+async function deleteClothes(req, res) {
+  let delId = parseInt(req.params.id);
+  let delCloth = await clothes.destroy({ where: { id: delId } });
+  res.status(204).json(delCloth);
 }
 
 module.exports = router;

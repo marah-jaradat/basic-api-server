@@ -7,8 +7,8 @@ const router = express.Router();
 router.get("/food", getFood);
 router.post("/food", addFood);
 router.get("/food/:id", getById);
-router.delete("/food/:id", deleteFood);
 router.put("/food/:id", updateFood);
+router.delete("/food/:id", deleteFood);
 
 async function getFood(req, res) {
   let allFood = await food.findAll();
@@ -27,12 +27,6 @@ async function getById(req, res) {
   res.status(200).json(gettedFood);
 }
 
-async function deleteFood(req, res) {
-  let delId = parseInt(req.params.id);
-  let delFood = await food.destroy({ where: { id: delId } });
-  res.status(204).json(delFood);
-}
-
 async function updateFood(req, res) {
   let body = req.body;
   let foodId = req.params.id;
@@ -41,4 +35,9 @@ async function updateFood(req, res) {
   res.status(201).json(updatedFood);
 }
 
+async function deleteFood(req, res) {
+  let delId = parseInt(req.params.id);
+  let delFood = await food.destroy({ where: { id: delId } });
+  res.status(204).json(delFood);
+}
 module.exports = router;
