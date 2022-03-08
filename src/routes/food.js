@@ -25,6 +25,7 @@ async function getById(req, res) {
   let gettedId = parseInt(req.params.id);
   let gettedFood = await food.findOne({ where: { id: gettedId } });
   res.status(200).json(gettedFood);
+  // res.status(200).json(await Food.findOne({ where: { id: id } }));
 }
 
 async function updateFood(req, res) {

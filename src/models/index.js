@@ -5,22 +5,30 @@ const { Sequelize, DataTypes } = require("sequelize");
 const food = require("./food");
 const clothes = require("./clothes");
 
-const POSTGRES_URL =
-  process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL; // npm i sqlite3
+// const POSTGRES_URL =
+//   process.env.NODE_ENV === "test" ? "sqlite:memory:" : process.env.DATABASE_URL; // npm i sqlite3
 
-let sequelizeOptions =
+// let sequelizeOptions =
+//   process.env.NODE_ENV === "production"
+//     ? {
+//         dialectOptions: {
+//           ssl: {
+//             require: true,
+//             rejectUnauthorized: false,
+//           },
+//         },
+//       }
+//     : {};
+
+// let sequelize = new Sequelize(POSTGRES_URL);
+
+const postgresURL =
+  process.env.NODE_ENV == "test" ? "sqlite:memory" : process.env.DATABASE_URL;
+const sequelizeOptions =
   process.env.NODE_ENV === "production"
-    ? {
-        dialectOptions: {
-          ssl: {
-            require: true,
-            rejectUnauthorized: false,
-          },
-        },
-      }
+    ? { dialectOptions: { ssl: { require: true, rejectUnauthorized: false } } }
     : {};
-
-let sequelize = new Sequelize(POSTGRES_URL);
+const sequelize = new Sequelize(postgresURL, sequelizeOptions);
 
 // const POSTGRES_URL =
 //   process.env.DATABASE_URL ||
